@@ -1,0 +1,349 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://blood_drop.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://camera_location.tscn" type="PackedScene" id=3]
+[ext_resource path="res://spawn.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve" id=1]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0.0384856, 5.48204 ), 0.0, 0.0, 0, 0, Vector2( 0.52406, -2.74103 ), 0.0, 0.0, 0, 0, Vector2( 0.61228, 200 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+
+flags = 4
+width = 2048
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 20000, 10000, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 9800, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+linear_accel_curve = SubResource( 2 )
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Gravity", "Linear Accel" ]
+
+[node name="spleen" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
+
+position = Vector2( 526.412, 50.9695 )
+scale = Vector2( 0.03, 0.03 )
+emitting = true
+amount = 2400
+lifetime = 5.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.8
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="walls" type="Node2D" parent="." index="1"]
+
+modulate = Color( 1, 0.109375, 0.109375, 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="right_wall" type="StaticBody2D" parent="walls" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="icon17" type="Sprite" parent="walls/right_wall" index="0"]
+
+position = Vector2( 995.013, 531.973 )
+rotation = -1.33866
+scale = Vector2( 6.57444, 6.222 )
+texture = ExtResource( 2 )
+
+[node name="icon19" type="Sprite" parent="walls/right_wall" index="1"]
+
+position = Vector2( 1094.53, 179.033 )
+rotation = 1.60273
+scale = Vector2( 6.57444, 6.222 )
+texture = ExtResource( 2 )
+
+[node name="icon20" type="Sprite" parent="walls/right_wall" index="2"]
+
+position = Vector2( 940.29, 455.51 )
+rotation = 3.35245
+scale = Vector2( 4.97488, 0.787009 )
+texture = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="walls/right_wall" index="3"]
+
+position = Vector2( 908.335, 77.2318 )
+rotation = -1.47852
+scale = Vector2( 6.38526, 0.665855 )
+texture = ExtResource( 2 )
+
+[node name="icon2" type="Sprite" parent="walls/right_wall" index="4"]
+
+position = Vector2( 834.696, 345.946 )
+scale = Vector2( 1.72058, 2.01921 )
+texture = ExtResource( 2 )
+
+[node name="icon3" type="Sprite" parent="walls/right_wall" index="5"]
+
+position = Vector2( 743.807, 280.268 )
+scale = Vector2( 5.14134, 0.422855 )
+texture = ExtResource( 2 )
+
+[node name="icon4" type="Sprite" parent="walls/right_wall" index="6"]
+
+position = Vector2( 857.916, 139.515 )
+scale = Vector2( 1.9901, 1 )
+texture = ExtResource( 2 )
+
+[node name="icon5" type="Sprite" parent="walls/right_wall" index="7"]
+
+position = Vector2( 767.529, 432.747 )
+texture = ExtResource( 2 )
+
+[node name="icon6" type="Sprite" parent="walls/right_wall" index="8"]
+
+position = Vector2( 800.7, 487.148 )
+texture = ExtResource( 2 )
+
+[node name="icon7" type="Sprite" parent="walls/right_wall" index="9"]
+
+position = Vector2( 764.876, 541.548 )
+texture = ExtResource( 2 )
+
+[node name="icon8" type="Sprite" parent="walls/right_wall" index="10"]
+
+position = Vector2( 750.28, 491.128 )
+rotation = -0.774882
+texture = ExtResource( 2 )
+
+[node name="icon9" type="Sprite" parent="walls/right_wall" index="11"]
+
+position = Vector2( 778.144, 572.065 )
+rotation = -0.774882
+texture = ExtResource( 2 )
+
+[node name="icon10" type="Sprite" parent="walls/right_wall" index="12"]
+
+position = Vector2( 596.617, 289.721 )
+rotation = -1.58767
+scale = Vector2( 0.715665, 0.754519 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/right_wall" index="13"]
+
+build_mode = 0
+polygon = PoolVector2Array( 909.667, -121.502, 887.111, 109.368, 792.905, 109.368, 798.213, 170.403, 880.477, 173.057, 869.862, 268.589, 575.304, 267.262, 580.611, 312.375, 624.397, 311.048, 627.05, 295.126, 771.676, 292.472, 779.637, 305.741, 783.618, 403.927, 738.505, 403.927, 737.178, 459.654, 706.661, 494.152, 735.851, 522.016, 733.198, 567.128, 761.061, 597.646, 861.901, 694.505, 928.243, -150.693 )
+
+[node name="left_wall" type="StaticBody2D" parent="walls" index="1"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="icon16" type="Sprite" parent="walls/left_wall" index="0"]
+
+position = Vector2( -94.3232, 408.576 )
+scale = Vector2( 6.57444, 6.222 )
+texture = ExtResource( 2 )
+
+[node name="icon18" type="Sprite" parent="walls/left_wall" index="1"]
+
+position = Vector2( 6.51669, 553.202 )
+rotation = -0.57976
+scale = Vector2( 6.57444, 6.222 )
+texture = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="walls/left_wall" index="2"]
+
+position = Vector2( 32.6256, 32.4114 )
+texture = ExtResource( 2 )
+
+[node name="icon2" type="Sprite" parent="walls/left_wall" index="3"]
+
+position = Vector2( 32.6256, 96.0997 )
+texture = ExtResource( 2 )
+
+[node name="icon3" type="Sprite" parent="walls/left_wall" index="4"]
+
+position = Vector2( 31.2988, 163.769 )
+texture = ExtResource( 2 )
+
+[node name="icon4" type="Sprite" parent="walls/left_wall" index="5"]
+
+position = Vector2( 157.251, 436.036 )
+rotation = 0.953887
+texture = ExtResource( 2 )
+
+[node name="icon5" type="Sprite" parent="walls/left_wall" index="6"]
+
+position = Vector2( 276.376, 519.177 )
+rotation = 0.0156038
+texture = ExtResource( 2 )
+
+[node name="icon8" type="Sprite" parent="walls/left_wall" index="7"]
+
+position = Vector2( 203.968, 491.079 )
+rotation = 0.677992
+texture = ExtResource( 2 )
+
+[node name="icon6" type="Sprite" parent="walls/left_wall" index="8"]
+
+position = Vector2( 114.415, 362.89 )
+rotation = 1.32356
+scale = Vector2( 1.3316, 1.37709 )
+texture = ExtResource( 2 )
+
+[node name="icon7" type="Sprite" parent="walls/left_wall" index="9"]
+
+position = Vector2( 87.7878, 253.603 )
+rotation = 1.59835
+scale = Vector2( 1.85939, 2.0347 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/left_wall" index="10"]
+
+build_mode = 0
+polygon = PoolVector2Array( 57.8235, -68.1479, 64.651, 9.8801, 62.7003, 196.172, 154.383, 199.098, 149.506, 315.165, 151.457, 351.253, 164.137, 395.143, 183.644, 427.33, 199.249, 448.788, 224.608, 472.196, 248.017, 488.777, 313.365, 488.777, 306.538, 551.199, 305.797, 642.178, -16.3031, 547.298 )
+
+[node name="icon9" type="Sprite" parent="walls/left_wall" index="11"]
+
+position = Vector2( 273.953, 579.817 )
+texture = ExtResource( 2 )
+
+[node name="icon10" type="Sprite" parent="walls/left_wall" index="12"]
+
+position = Vector2( 273.953, 642.178 )
+texture = ExtResource( 2 )
+
+[node name="icon11" type="Sprite" parent="walls/left_wall" index="13"]
+
+position = Vector2( 230.167, 521.436 )
+texture = ExtResource( 2 )
+
+[node name="icon12" type="Sprite" parent="walls/left_wall" index="14"]
+
+position = Vector2( 166.479, 477.65 )
+texture = ExtResource( 2 )
+
+[node name="icon13" type="Sprite" parent="walls/left_wall" index="15"]
+
+position = Vector2( 122.693, 411.308 )
+texture = ExtResource( 2 )
+
+[node name="icon14" type="Sprite" parent="walls/left_wall" index="16"]
+
+position = Vector2( 105.444, 313.122 )
+texture = ExtResource( 2 )
+
+[node name="icon15" type="Sprite" parent="walls/left_wall" index="17"]
+
+position = Vector2( 25.8338, 205.648 )
+texture = ExtResource( 2 )
+
+[node name="platform" type="StaticBody2D" parent="walls" index="2"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="icon" type="Sprite" parent="walls/platform" index="0"]
+
+position = Vector2( 375.393, 285.811 )
+scale = Vector2( 2.93837, 0.362842 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/platform" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 285.08, 276.151, 469.421, 276.151, 469.421, 298.584, 283.129, 297.608 )
+
+[node name="camera_location" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 534.963, 306.758 )
+
+[node name="spawn" parent="." index="3" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="finish" type="StaticBody2D" parent="." index="4"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="finish" index="0"]
+
+position = Vector2( -19.1125, 55.8669 )
+build_mode = 0
+polygon = PoolVector2Array( 225.563, 586.582, 850.391, 579.231, 901.847, 646.859, 162.345, 638.038 )
+
+

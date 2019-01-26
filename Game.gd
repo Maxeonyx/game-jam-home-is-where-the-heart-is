@@ -10,6 +10,7 @@ onready var player = $Player
 func _ready():
 	sm_levels()
 	sm_death_screen()
+	sm_music()
 	
 func _process(delta):
 	#if current_level:
@@ -39,6 +40,18 @@ func sm_levels():
 			player.reset(spawn.global_transform.origin)
 			$camera.position = camera_location.global_transform.origin
 			yield(player, 'level_complete')
-		
+			
+func sm_music():
+	while true:
+		for audio in $music.get_children():
+			audio.play()
+			print(audio.name)
+			yield(audio, 'finished')
+			print(audio.name, 'finished')
 
 
+
+
+func _on_AudioStreamPlayer_finished():
+	print('asdhfjkasjhdl')
+	pass # replace with function body
