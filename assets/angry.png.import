@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blood_drop.png-0878b916f0b9d102317d43740c76eb8c.stex"
+path="res://.import/angry.png-04c5d12f7dd38205e5c275362e9dbf56.stex"
 
 [deps]
 
-source_file="res://blood_drop.png"
-dest_files=[ "res://.import/blood_drop.png-0878b916f0b9d102317d43740c76eb8c.stex" ]
+source_file="res://assets/angry.png"
+dest_files=[ "res://.import/angry.png-04c5d12f7dd38205e5c275362e9dbf56.stex" ]
 
 [params]
 

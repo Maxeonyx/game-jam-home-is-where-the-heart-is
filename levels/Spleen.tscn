@@ -1,9 +1,12 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://blood_drop.png" type="Texture" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://camera_location.tscn" type="PackedScene" id=3]
-[ext_resource path="res://spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/blood_drop.png" type="Texture" id=1]
+[ext_resource path="res://assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
+[ext_resource path="res://util/spawn.tscn" type="PackedScene" id=4]
+
+
+
 
 [sub_resource type="Curve" id=1]
 

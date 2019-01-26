@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song_20190126_022642_536.mid.ogg-5cc9b2e9952bec5c9f1c5dfdf7a3e147.oggstr"
+
+[deps]
+
+source_file="res://assets/song_20190126_022642_536.mid.ogg"
+dest_files=[ "res://.import/song_20190126_022642_536.mid.ogg-5cc9b2e9952bec5c9f1c5dfdf7a3e147.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

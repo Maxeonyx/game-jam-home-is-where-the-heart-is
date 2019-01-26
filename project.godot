@@ -38,4 +38,4 @@ grab=[ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_n
 [rendering]
 
 environment/default_clear_color=Color( 0.742188, 0.263824, 0.364729, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://util/default_env.tres"
