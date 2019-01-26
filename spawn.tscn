@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="spawn" type="Position2D"]
+
+position = Vector2( 848.35, 66.785 )
+
+[node name="Line2D" type="Line2D" parent="." index="0"]
+
+points = PoolVector2Array( -16.3849, -20.285, 19.715, 24.84 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = -488427404
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Line2D2" type="Line2D" parent="." index="1"]
+
+points = PoolVector2Array( 24.641, -25.0248, -18.6436, 27.7727 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 980751944
+sharp_limit = 2.0
+round_precision = 8
+
+

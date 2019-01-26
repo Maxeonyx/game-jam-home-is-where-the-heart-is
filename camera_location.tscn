@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="camera_location" type="Position2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Node2D" type="Node2D" parent="." index="0"]
+
+position = Vector2( 0, -5.41501 )
+
+[node name="Line2D" type="Line2D" parent="Node2D" index="0"]
+
+points = PoolVector2Array( 511.505, -294.12, 513.31, 306.945, -510.125, 306.945, -510.125, -294.12, 493.455, -294.12 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 1062129359
+sharp_limit = 2.0
+round_precision = 8
+
+

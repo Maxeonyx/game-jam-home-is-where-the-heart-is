@@ -45,6 +45,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="spritescaler" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 0.808122, 5.53527 )
 scale = Vector2( 0.0747462, 0.0770229 )
 _sections_unfolded = [ "Transform" ]

@@ -4,19 +4,27 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 signal death
+signal level_complete
 
 const jump_velocity = 400
 const max_vel = 400
 const max_y_vel = 800
+const acceleration = 35
+const friction = 20
+const gravity = 20
+const indicator_size = 1
+const indicator_size_decay = 0.98
 
-var acceleration = 35
-var friction = 20
-var velocity = Vector2()
-var gravity = 20
+var velocity
+var grabbed
 
-var grabbed = false
+func reset(spawn_pos):
+	position = spawn_pos
+	velocity = Vector2()
+	grabbed = false
 
 func _ready():
+	reset(position)
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	sm_lifecycle()
@@ -35,24 +43,36 @@ func _process(delta):
 func _physics_process(delta):
 	
 	if grabbed:
+		$indicator.scale = Vector2(indicator_size, indicator_size)
+		$indicator.show()
 		grabbed_movement()
 	else:
+		$indicator.hide()
 		normal_movement()
 		
 func grabbed_movement():
 	
 	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))
 	
+	indicator_size *= indicator_size_decay
+	
+	print($indicator.scale)
+	
 	$indicator/jump_target.position = axis * 75
 	
 	if Input.is_action_just_released('grab'):
 		velocity = axis.normalized() * 400
 		grabbed = false
-		$indicator.hide()
+	
+	if $indicator.scale.x < 0.2:
+		grabbed = false
 		
 func normal_movement():
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
+	if get_slide_count() > 0:
+		handle_collision(get_slide_collision(0))
 
 	if velocity.y < 0 and Input.is_action_pressed('jump'):
 		velocity.y += gravity / 2
@@ -81,9 +101,15 @@ func normal_movement():
 	
 	if Input.is_action_pressed('grab') and is_on_wall():
 		grabbed = true
-		$indicator.show()
 	
+func handle_collision(collision):
+	var other = collision.collider
+	if other.name == 'finish':
+		emit_signal('level_complete')
+		print('level_complete')
 	
+	if other.is_in_group('enemy'):
+		emit_signal('death')
 	
 	
 	
