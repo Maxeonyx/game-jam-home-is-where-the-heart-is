@@ -4,6 +4,8 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
+var level_original_state = []
+var current_level_i
 var current_level
 onready var player = $Player
 
@@ -11,12 +13,6 @@ func _ready():
 	sm_levels()
 	sm_death_screen()
 	sm_music()
-	
-func _process(delta):
-	#if current_level:
-	#	print('loc', current_level.get_node('camera_location').global_transform.origin)
-	#print('cam', $camera.position)
-	pass
 
 func sm_death_screen():
 	while true:
@@ -27,18 +23,33 @@ func sm_death_screen():
 		yield($death_cooldown, 'timeout')
 		$camera/death.hide()
 		add_child(player)
-		player.reset(current_level.get_node('spawn').global_transform.origin)
+		reset_level()
 		
+func reset_level():
+	current_level.free()
+	current_level = level_original_state[current_level_i].instance()
+	$Levels.add_child(current_level)
+	$Levels.move_child(current_level, current_level_i)
+	player.reset(current_level.get_node('spawn').global_transform.origin)
+	$camera.position = current_level.get_node('camera_location').global_transform.origin
+	
+
 func sm_levels():
+	
+	for level in $Levels.get_children():
+		level.get_node('spawn').hide()
+		level.get_node('camera_location').hide()
+		
+		var ps = PackedScene.new()
+		ps.pack(level)
+		level_original_state.append(ps)
+	
 	while true:
-		for level in $Levels.get_children():
-			current_level = level
-			var spawn = current_level.get_node('spawn')
-			var camera_location = current_level.get_node('camera_location')
-			spawn.hide()
-			camera_location.hide()
-			player.reset(spawn.global_transform.origin)
-			$camera.position = camera_location.global_transform.origin
+		var levels = $Levels.get_children()
+		for i in range(len(levels)):
+			current_level = levels[i]
+			current_level_i = i
+			reset_level()
 			yield(player, 'level_complete')
 			
 func sm_music():

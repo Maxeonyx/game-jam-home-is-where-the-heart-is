@@ -1,12 +1,11 @@
 extends Navigation2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+func _ready():
+	sm_calculate_enemy_paths()
 
 func get_player():
-	if get_parent():
-		return get_parent().get_node('Player')
+	if get_tree().get_root().get_node('Game').has_node('Player'):
+		return get_tree().get_root().get_node('Game').get_node('Player')
 
 func sm_calculate_enemy_paths():
 	while true:
@@ -19,7 +18,7 @@ func sm_calculate_enemy_paths():
 		
 		var underlings = []
 		for child in get_children():
-			if child.is_in_group('enemy'):
+			if child.has_method('is_enemy') and child.is_enemy():
 				underlings.append(child)
 		
 		for minion in underlings:

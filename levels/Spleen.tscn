@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/blood_drop.png" type="Texture" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=4]
-
-
-
+[ext_resource path="res://EnemyController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WhiteCell.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve" id=1]
 
@@ -64,9 +63,9 @@ _sections_unfolded = [ "Emission Shape", "Gravity", "Linear Accel" ]
 
 [sub_resource type="NavigationPolygon" id=4]
 
-vertices = PoolVector2Array( 368.525, 449.834, 416.291, 501.581, -46.7767, 498.927, -42.7961, 367.57, 206.65, 145.987, 211.957, 197.734, 115.574, 181.381, 113.191, 149.603, 430.886, 55.762, 514.477, 58.4157, 502.536, 142.007, -204.671, 74.3378, 339.334, 372.877, 373.832, 404.721, -290.915, -176.435, 538.36, -173.781, 535.707, -118.054, 517.131, -18.5411, 433.54, -22.5216, -292.242, -104.786, -293.569, 74.3378, -78.2662, 148.809, -182.114, 298.574, -202.148, 253.52, -204.671, 207.022, -78.2662, 181.381, -127.714, 352.974, 275.644, 178.079, 418.143, 178.079, 419.341, 278.667, 373.837, 278.667, 269.656, 197.239, -109.943, 367.28, 375.034, 339.738 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 4, 11 ), PoolIntArray( 12, 13, 0, 3, 6 ), PoolIntArray( 14, 15, 16, 17, 18, 19 ), PoolIntArray( 11, 20, 19, 18, 8 ), PoolIntArray( 11, 4, 7, 21 ), PoolIntArray( 22, 23, 24, 11, 21, 25, 26 ), PoolIntArray( 27, 28, 29, 30, 31 ), PoolIntArray( 32, 26, 25, 6, 3 ), PoolIntArray( 12, 6, 5 ), PoolIntArray( 12, 5, 31, 30, 33 ) ]
-outlines = [ PoolVector2Array( -292.242, -104.786, -293.569, 74.3378, -204.671, 74.3378, -204.671, 207.022, -202.148, 253.52, -182.114, 298.574, -127.714, 352.974, -109.943, 367.28, -42.7961, 367.57, -46.7767, 498.927, 416.291, 501.581, 368.525, 449.834, 373.832, 404.721, 339.334, 372.877, 375.034, 339.738, 373.837, 278.667, 419.341, 278.667, 418.143, 178.079, 275.644, 178.079, 269.656, 197.239, 211.957, 197.734, 206.65, 145.987, 502.536, 142.007, 514.477, 58.4157, 430.886, 55.762, 433.54, -22.5216, 517.131, -18.5411, 535.707, -118.054, 538.36, -173.781, -290.915, -176.435 ), PoolVector2Array( -78.2662, 148.809, 113.191, 149.603, 115.574, 181.381, -78.2662, 181.381 ) ]
+vertices = PoolVector2Array( 113.25, 194.803, 127.846, 178.881, 202.149, 132.442, 200.822, 213.379, -12.7997, 346.063, 125.192, 153.671, 348.101, 444.25, 381.272, 531.821, -26.0682, 530.494, 342.794, 411.078, 321.564, 388.522, 414.443, 70.0801, 496.708, 68.7533, 487.42, 127.134, 273.798, 220.013, 320.238, 350.044, -274.188, -183.347, 517.937, -166.098, 503.342, -32.0867, 425.058, -33.4136, -274.188, 52.8311, 411.79, -20.1451, -183.962, 56.8117, -73.8345, 141.73, 111.923, 141.73, 293.701, 194.803, 405.155, 198.784, 406.482, 262.472, 360.043, 266.453, 358.716, 320.853, -72.5076, 193.476, -99.0445, 346.063, -126.908, 328.814, -153.445, 298.297, -178.655, 253.184, -88.4297, 185.515, -185.289, 208.072, -89.7566, 156.325 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 2, 1, 5 ), PoolIntArray( 6, 7, 8, 4 ), PoolIntArray( 9, 6, 4, 10 ), PoolIntArray( 11, 12, 13, 2 ), PoolIntArray( 14, 15, 10, 4, 3 ), PoolIntArray( 16, 17, 18, 19 ), PoolIntArray( 20, 16, 19, 21, 22 ), PoolIntArray( 23, 22, 21, 11, 2, 24 ), PoolIntArray( 25, 26, 27, 28, 14 ), PoolIntArray( 14, 28, 29, 15 ), PoolIntArray( 30, 0, 4, 31, 32, 33, 34 ), PoolIntArray( 35, 30, 34, 36 ), PoolIntArray( 35, 36, 22, 37 ), PoolIntArray( 23, 37, 22 ), PoolIntArray( 24, 2, 5 ) ]
+outlines = [ PoolVector2Array( -274.188, -183.347, -274.188, 52.8311, -183.962, 56.8117, -185.289, 208.072, -178.655, 253.184, -153.445, 298.297, -126.908, 328.814, -99.0445, 346.063, -12.7997, 346.063, -26.0682, 530.494, 381.272, 531.821, 348.101, 444.25, 342.794, 411.078, 321.564, 388.522, 320.238, 350.044, 358.716, 320.853, 360.043, 266.453, 406.482, 262.472, 405.155, 198.784, 293.701, 194.803, 273.798, 220.013, 200.822, 213.379, 202.149, 132.442, 487.42, 127.134, 496.708, 68.7533, 414.443, 70.0801, 411.79, -20.1451, 425.058, -33.4136, 503.342, -32.0867, 517.937, -166.098 ), PoolVector2Array( -73.8345, 141.73, -89.7566, 156.325, -88.4297, 185.515, -72.5076, 193.476, 113.25, 194.803, 127.846, 178.881, 125.192, 153.671, 111.923, 141.73 ) ]
 
 [node name="spleen" type="Node2D"]
 
@@ -355,14 +354,16 @@ position = Vector2( -19.1125, 55.8669 )
 build_mode = 0
 polygon = PoolVector2Array( 225.563, 586.582, 850.391, 579.231, 901.847, 646.859, 162.345, 638.038 )
 
-[node name="Navigation2D" type="Navigation2D" parent="." index="5"]
+[node name="EnemyController" parent="." index="5" instance=ExtResource( 5 )]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="EnemyController" index="1"]
 
 position = Vector2( 358.247, 120.743 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
-
 navpoly = SubResource( 4 )
 enabled = true
+
+[node name="WhiteCell" parent="EnemyController" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 246.793, 82.2642 )
 
 

@@ -121,6 +121,4 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[connection signal="finished" from="music/AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
-
 

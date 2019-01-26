@@ -65,7 +65,8 @@ func normal_movement():
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
 	if get_slide_count() > 0:
-		handle_collision(get_slide_collision(0))
+		for i in range(get_slide_count()):
+			handle_collision(get_slide_collision(i))
 
 	if velocity.y < 0 and Input.is_action_pressed('jump'):
 		velocity.y += gravity / 2
@@ -97,11 +98,18 @@ func normal_movement():
 	
 func handle_collision(collision):
 	var other = collision.collider
+	
+	print(other.name)
+	
 	if other.name == 'finish':
 		emit_signal('level_complete')
 	
 	if other.is_in_group('enemy'):
-		emit_signal('death')
+		_collide_with_enemy(other)
+
+func _collide_with_enemy(enemy):
+	emit_signal('death')
+	
 	
 	
 	
