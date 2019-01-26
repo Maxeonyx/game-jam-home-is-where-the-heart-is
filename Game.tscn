@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Mouth.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://song_20190126_021324_525.mid.ogg" type="AudioStream" id=5]
-[ext_resource path="res://song_20190126_022551_079.mid.ogg" type="AudioStream" id=6]
-[ext_resource path="res://song_20190126_022642_536.mid.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Spleen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://song_20190126_021324_525.mid.ogg" type="AudioStream" id=6]
+[ext_resource path="res://song_20190126_022551_079.mid.ogg" type="AudioStream" id=7]
+[ext_resource path="res://song_20190126_022642_536.mid.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 80
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Game" type="Node" index="0"]
@@ -26,7 +27,9 @@ script = ExtResource( 1 )
 
 position = Vector2( -1387.96, -973.425 )
 
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+[node name="spleen" parent="Levels" index="1" instance=ExtResource( 3 )]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -1447.27, 101.613 )
 
@@ -93,7 +96,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="music" index="0"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -102,7 +105,7 @@ bus = "Master"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="music" index="1"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -111,7 +114,7 @@ bus = "Master"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="music" index="2"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

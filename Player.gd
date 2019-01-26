@@ -25,16 +25,8 @@ func reset(spawn_pos):
 
 func _ready():
 	reset(position)
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	sm_lifecycle()
 	
 	$AnimationPlayer.play("syn")
-
-func sm_lifecycle():
-	yield(self, 'death')
-	print('i died')
-	
 
 func _process(delta):
 	if position.y > 1000:
@@ -47,6 +39,7 @@ func _physics_process(delta):
 		$indicator.show()
 		grabbed_movement()
 	else:
+		indicator_size = 1
 		$indicator.hide()
 		normal_movement()
 		
@@ -106,7 +99,6 @@ func handle_collision(collision):
 	var other = collision.collider
 	if other.name == 'finish':
 		emit_signal('level_complete')
-		print('level_complete')
 	
 	if other.is_in_group('enemy'):
 		emit_signal('death')

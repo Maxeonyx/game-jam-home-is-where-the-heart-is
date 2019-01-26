@@ -52,7 +52,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="spritescaler" index="0"]
 
-rotation = 3.14159
+rotation = 6.28319
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -68,7 +68,6 @@ blend_times = [  ]
 
 [node name="indicator" type="Line2D" parent="." index="3"]
 
-visible = false
 points = PoolVector2Array( 74.118, -8.81289, 63.9951, -44.9033, 37.5875, -72.6313, -5.54489, -79.2332, -56.1595, -58.1071, -74.2047, -12.774, -68.9231, 34.3195, -42.9557, 69.0895, 1.49713, 80.973, 48.1506, 70.4099, 71.4773, 35.1998, 74.118, -10.5734 )
 width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )

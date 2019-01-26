@@ -5,9 +5,8 @@
 [ext_resource path="res://camera_location.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WhiteCell.tscn" type="PackedScene" id=4]
 
-[node name="mouth" type="Node2D" index="0"]
+[node name="mouth" type="Node2D"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="lower_jaw" type="StaticBody2D" parent="." index="0"]

@@ -65,22 +65,22 @@ script = ExtResource( 1 )
 [node name="white_blood_cell" type="Sprite" parent="." index="0"]
 
 position = Vector2( 12.9061, -10.976 )
-rotation = 0.394028
+rotation = 6.25949
 scale = Vector2( -0.405005, 0.445005 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="white_blood_cell2" type="Sprite" parent="." index="1"]
 
 position = Vector2( 0.582466, 2.22776 )
-rotation = 0.542447
+rotation = -5.38693
 scale = Vector2( 0.445005, 0.445005 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="angry" type="Sprite" parent="." index="2"]
 
-position = Vector2( 5.00924, -10.9605 )
+position = Vector2( 6.96494, -16.9905 )
 scale = Vector2( 0.09091, 0.09091 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
@@ -100,5 +100,12 @@ _sections_unfolded = [ "Playback Options" ]
 
 position = Vector2( 7.04205, -6.16177 )
 shape = SubResource( 2 )
+
+[node name="path_recalculate_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
 
 
