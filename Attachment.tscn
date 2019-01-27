@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/player.png" type="Texture" id=1]
+
+[node name="Attachment" type="Position2D" index="0" groups=[
+"attach",
+]]
+
+[node name="player" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.17688, 0.808594, 0, 1 )
+scale = Vector2( 0.0911015, 0.0911015 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

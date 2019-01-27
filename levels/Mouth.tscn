@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/icon.png" type="Texture" id=1]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
-[ext_resource path="res://WhiteCell.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Attachment.tscn" type="PackedScene" id=4]
 
 [node name="mouth" type="Node2D" index="0"]
 
@@ -59,11 +59,12 @@ _sections_unfolded = [ "Material" ]
 
 [node name="icona2" type="Sprite" parent="gums" index="1"]
 
+modulate = Color( 1.36, 217.65, 6.15, 1 )
 position = Vector2( -21.1306, 391.476 )
 rotation = 3.03326
 scale = Vector2( 6.57444, 6.222 )
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="icona3" type="Sprite" parent="gums" index="2"]
 
@@ -180,8 +181,6 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -23.3689, -25.5068 )
 
-[node name="WhiteCell" parent="." index="7" instance=ExtResource( 4 )]
-
-position = Vector2( -145.144, -17.1922 )
+[node name="Attachment" parent="." index="7" instance=ExtResource( 4 )]
 
 

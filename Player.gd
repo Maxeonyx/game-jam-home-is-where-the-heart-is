@@ -15,6 +15,8 @@ const friction = 20
 const gravity = 20
 const indicator_size = 1
 const indicator_size_decay = 0.98
+const max_attachment_length = 500
+const angular_acceleration = 80
 
 var velocity
 var movement_mode
@@ -45,6 +47,18 @@ func _physics_process(delta):
 			normal_movement()
 		'grabbed':
 			grabbed_movement()
+		'attached':
+			attached_movement()
+
+func attach():
+	var attachment_point = Vector2()
+
+func attached_movement():
+	
+	draw_li
+	var attachment_point = Vector2()
+	var direction_to_attachment = (attachment_point - position).normalized()
+	velocity += direction_to_attachment * angular_acceleration
 		
 func grabbed_movement():
 	
