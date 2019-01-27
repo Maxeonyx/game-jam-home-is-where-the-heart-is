@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/intestines1.png" type="Texture" id=1]
+[ext_resource path="res://levels/intestines1.png" type="Texture" id=1]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=3]
 
 [node name="Intestines1" type="Node2D"]
 
-[node name="intestines1" type="Sprite" parent="." index="0"]
+[node name="intestines2" type="Sprite" parent="." index="0"]
 
-position = Vector2( 515.439, 298.839 )
+position = Vector2( 514.536, 297.937 )
 scale = Vector2( 0.970348, 0.920648 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="camera_location" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -22,6 +23,7 @@ position = Vector2( 22.3946, 60.5218 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." index="3"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -54,8 +56,9 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="acids" index="0"]
 
+position = Vector2( 0, -0.237854 )
 build_mode = 0
-polygon = PoolVector2Array( 78.3122, 111.314, 86.1605, 112.741, 91.1549, 110.125, 131.585, 119.4, 173.443, 141.756, 192.231, 165.777, 201.269, 183.376, 204.123, 194.554, 200.793, 198.597, 27.6166, 497.872, 120.166, 580.535, 148.793, 572.81, 211.507, 570.112, 320.848, 567.216, 323.419, 569.786, 333.7, 580.838, 540.195, 527.135, 628.64, 329.488, 608.785, 194.113, 628.027, 183.871, 657.93, 184.013, 770.487, 181.69, 790.439, 184.401, 694.799, 332.002, 684.862, 392.653, 706.928, 437.964, 718.133, 458.735, 720.28, 475.691, 717.06, 484.921, 703.752, 494.579, 581.525, 537.565, 374.398, 613.281, 15.8981, 597.32, -16.0231, 360.367 )
+polygon = PoolVector2Array( 78.3122, 111.314, 86.1605, 112.741, 91.1549, 110.125, 131.585, 119.4, 173.443, 141.756, 192.231, 165.777, 201.269, 183.376, 204.123, 194.554, 200.793, 198.597, 27.6166, 497.872, 120.166, 580.535, 146.657, 572.79, 198.93, 572.965, 239.489, 579.958, 282.321, 581.881, 310.643, 565.797, 332.845, 559.154, 403.824, 541.147, 418.335, 537.301, 540.195, 527.135, 628.64, 329.488, 608.785, 194.113, 628.027, 183.871, 657.93, 184.013, 770.487, 181.69, 790.439, 184.401, 694.799, 332.002, 684.862, 392.653, 706.928, 437.964, 718.133, 458.735, 720.28, 475.691, 717.06, 484.921, 703.752, 494.579, 581.525, 537.565, 374.398, 613.281, 15.8981, 597.32, -16.0231, 360.367 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="acids" index="1"]
 
