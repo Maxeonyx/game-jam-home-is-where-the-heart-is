@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/Virus.png" type="Texture" id=2]
-[ext_resource path="res://indicator.gd" type="Script" id=3]
-[ext_resource path="res://assets/player.png" type="Texture" id=4]
+[ext_resource path="res://rope.gd" type="Script" id=2]
+[ext_resource path="res://assets/Virus.png" type="Texture" id=3]
+[ext_resource path="res://indicator.gd" type="Script" id=4]
+[ext_resource path="res://assets/player.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -38,24 +39,34 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
-rope_color = null
 
-[node name="spritescaler" type="Node2D" parent="." index="0"]
+[node name="rope" type="Line2D" parent="." index="0"]
+
+points = PoolVector2Array( 0.125359, 0.0137329, 45.2301, -30.5805 )
+width = 5.0
+default_color = Color( 0.941406, 0.397156, 0, 1 )
+texture_mode = 164895456
+sharp_limit = 2.0
+round_precision = 8
+script = ExtResource( 2 )
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="spritescaler" type="Node2D" parent="." index="1"]
 
 scale = Vector2( 0.0747462, 0.0770229 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="spritescaler" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="collider" type="CollisionShape2D" parent="." index="1"]
+[node name="collider" type="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -65,15 +76,6 @@ playback_speed = 1.0
 anims/syn = SubResource( 2 )
 blend_times = [  ]
 
-[node name="recharge_tween" type="Tween" parent="." index="3"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
 [node name="indicator" type="Line2D" parent="." index="4"]
 
 modulate = Color( 0.371094, 0.475911, 1, 1 )
@@ -82,7 +84,7 @@ width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )
 sharp_limit = 2.0
 round_precision = 8
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 full_charge_color = Color( 0.169128, 0.636719, 0, 0.707216 )
 charge_color = Color( 0.404582, 0.898438, 0.0982666, 0.265216 )
@@ -93,7 +95,16 @@ discharge_color = Color( 0.167969, 0.375977, 1, 0.856353 )
 modulate = Color( 0.855469, 0.0133667, 0.0133667, 1 )
 position = Vector2( 75, 0 )
 scale = Vector2( 0.0684695, 0.0684695 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Tween" type="Tween" parent="." index="5"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

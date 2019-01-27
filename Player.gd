@@ -5,33 +5,35 @@ extends KinematicBody2D
 # var b = "textvar"
 signal death
 signal level_complete
+signal fire
+signal end_fire
 
 const ping_velocity = 1000
+const min_ping_velocity = 300
 const jump_velocity = 400
 const max_vel = 400
 const max_y_vel = 800
 const acceleration = 35
 const friction = 20
 const gravity = 20
-const indicator_size = 1
-const indicator_size_decay = 0.98
-const max_attachment_length = 500
+const max_attachment_length = 5000
 const angular_acceleration = 80
-
-export (Color) var rope_color
 
 var velocity
 var movement_mode
 var is_still_jumping
+var attachment_point
 
 func reset(spawn_pos):
 	position = spawn_pos
 	velocity = Vector2()
 	movement_mode = 'normal'
 	is_still_jumping = false
+	attachment_point = null
 	$indicator.reset()
 
 func _ready():
+	sm_rope()
 	reset(position)
 
 func _process(delta):
@@ -51,26 +53,24 @@ func _physics_process(delta):
 		'attached':
 			attached_movement()
 
-func attach():
-	var attachment_point = Vector2()
-
 func attached_movement():
+	if attachment_point == null:
+		return
 	
-	var attachment_point = Vector2()
-	draw_line(position, attachment_point, rope_color, 5, true)
 	var direction_to_attachment = (attachment_point - position).normalized()
+	if (attachment_point - position).length():
+		pass
 	velocity += direction_to_attachment * angular_acceleration
 		
 func grabbed_movement():
 	
 	var axis = Vector2(Input.get_joy_axis(0, 0), Input.get_joy_axis(0, 1))
 	
-	indicator_size *= indicator_size_decay
-	
 	$indicator/jump_target.position = axis * 75
 	
 	if Input.is_action_just_released('grab'):
-		velocity = axis.normalized() * ping_velocity * $indicator.charge
+		var jump_size = $indicator.charge * (ping_velocity - min_ping_velocity) + min_ping_velocity
+		velocity = axis.normalized() * $indicator.jump()  * jump_size
 		movement_mode = 'normal'
 		$indicator.start_charge()
 		
@@ -105,6 +105,10 @@ func normal_movement():
 	
 	if abs(velocity.y) > max_y_vel:
 		velocity.y = sign(velocity.y) * max_y_vel
+		
+	if Input.is_action_just_pressed('attach'):
+		print('fire')
+		emit_signal('fire')
 	
 	if is_on_floor() and Input.is_action_just_pressed('jump'):
 		is_still_jumping = true
@@ -127,12 +131,29 @@ func handle_collision(collision):
 func _collide_with_enemy(enemy):
 	emit_signal('death')
 
-
-func sm_discharge():
+func sm_rope():
 	while true:
-		yield($indicator, "empty")
-		movement_mode = 'normal'
-		$indicator.start_charge()
+		yield(self, 'fire')
+		$rope.show()
+		var nearest_attachment
+		if get_tree().has_group('attach'):
+			for att in get_tree().get_nodes_in_group('attach'):
+				if nearest_attachment == null or (att.position - position).length() < (nearest_attachment.position - position).length():
+					nearest_attachment = att
+		
+		$Tween.interpolate_property($rope, 'endpoint', position, nearest_attachment.position, 0.3, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		var attached = yield(self, 'end_fire')
+		if attached:
+			attachment_point = nearest_attachment.position
+			movement_mode = 'attached'
+		else:
+			$Tween.stop()
+			$rope.reset()
+		
+func sm_tween_proxy():
+	while true:
+		yield($Tween, 'tween_completed')
+		emit_signal('end_fire', true)
 	
 	
 	
