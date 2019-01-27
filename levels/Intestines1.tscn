@@ -4,7 +4,7 @@
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=3]
 
-[node name="Intestines1" type="Node2D"]
+[node name="Intestines1" type="Node2D" index="0"]
 
 [node name="intestines2" type="Sprite" parent="." index="0"]
 
@@ -23,7 +23,6 @@ position = Vector2( 22.3946, 60.5218 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." index="3"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -63,7 +62,7 @@ polygon = PoolVector2Array( 78.3122, 111.314, 86.1605, 112.741, 91.1549, 110.125
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="acids" index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( 808.954, 577.616, 796.349, 573.573, 743.314, 570.481, 719.293, 571.67, 700.981, 579.756, 730.709, 599.02, 809.668, 593.312 )
+polygon = PoolVector2Array( 808.954, 577.616, 796.349, 573.573, 743.314, 570.481, 728.245, 570.211, 709.923, 584.543, 730.709, 599.02, 809.668, 593.312 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="acids" index="2"]
 

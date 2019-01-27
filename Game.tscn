@@ -40,7 +40,7 @@ position = Vector2( -112.285, -825.788 )
 
 [node name="Intestines1" parent="Levels" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 1293.41, -813.965 )
+position = Vector2( 1385.41, -840.965 )
 
 [node name="ending" parent="Levels" index="4" instance=ExtResource( 6 )]
 
