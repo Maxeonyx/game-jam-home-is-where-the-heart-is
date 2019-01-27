@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Virus.png" type="Texture" id=2]
-[ext_resource path="res://assets/player.png" type="Texture" id=3]
+[ext_resource path="res://indicator.gd" type="Script" id=3]
+[ext_resource path="res://assets/player.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 5.45828
-height = 11.9907
+radius = 9.751
+height = 8.35485
 
 [sub_resource type="Animation" id=2]
 
@@ -37,23 +38,21 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+rope_color = null
 
-[node name="collider" type="CollisionShape2D" parent="." index="0"]
+[node name="spritescaler" type="Node2D" parent="." index="0"]
 
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="spritescaler" type="Node2D" parent="." index="1"]
-
-editor/display_folded = true
-position = Vector2( 0.808122, 5.53527 )
 scale = Vector2( 0.0747462, 0.0770229 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="spritescaler" index="0"]
 
-rotation = 2.88697
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="collider" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -83,17 +82,18 @@ width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )
 sharp_limit = 2.0
 round_precision = 8
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-full_charge_color = Color( 0.244263, 0.679688, 0, 0.823176 )
-charge_color = Color( 0, 0.953125, 0.215942, 0.259647 )
-discharge_color = Color( 0, 0.370789, 0.949219, 1 )
+full_charge_color = Color( 0.169128, 0.636719, 0, 0.707216 )
+charge_color = Color( 0.404582, 0.898438, 0.0982666, 0.265216 )
+discharge_color = Color( 0.167969, 0.375977, 1, 0.856353 )
 
 [node name="jump_target" type="Sprite" parent="indicator" index="0"]
 
 modulate = Color( 0.855469, 0.0133667, 0.0133667, 1 )
 position = Vector2( 75, 0 )
 scale = Vector2( 0.0684695, 0.0684695 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 

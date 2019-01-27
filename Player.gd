@@ -18,6 +18,8 @@ const indicator_size_decay = 0.98
 const max_attachment_length = 500
 const angular_acceleration = 80
 
+export (Color) var rope_color
+
 var velocity
 var movement_mode
 var is_still_jumping
@@ -31,7 +33,6 @@ func reset(spawn_pos):
 
 func _ready():
 	reset(position)
-	$AnimationPlayer.play("syn")
 
 func _process(delta):
 	if position.y > 350:
@@ -55,8 +56,8 @@ func attach():
 
 func attached_movement():
 	
-	draw_li
 	var attachment_point = Vector2()
+	draw_line(position, attachment_point, rope_color, 5, true)
 	var direction_to_attachment = (attachment_point - position).normalized()
 	velocity += direction_to_attachment * angular_acceleration
 		
