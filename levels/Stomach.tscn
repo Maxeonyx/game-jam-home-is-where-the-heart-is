@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Stomach.png" type="Texture" id=1]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
+[ext_resource path="res://EnemyController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WhiteCell.tscn" type="PackedScene" id=5]
 
-[node name="Stomach" type="Node2D"]
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 107.307, 79.8832, 105.546, -1.9807, 216.077, -1.29979, 218.46, 61.4604, 142.517, 199.598, 225.61, 117.865, 257.387, 193.336, 175.967, 335.158, 315.381, 260.863, 179.488, 404.698, 975.554, 406.244, 1024.01, 426.105, 1027.99, 543.681, 962.049, 545.27, 734.047, 546.064, 929.477, 367.317, 906.439, 344.278, 641.098, 194.925, 769.796, 206.047, 832.556, 237.824, 850.034, 257.685, 634.743, 535.736, 548.944, 205.253, 405.152, 277.546, 467.118, 244.974, 515.578, 538.914, 288.37, 530.175, 359.075, 275.957, 216.123, 502.007, 196.711, 460.595 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 4, 3, 5 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 6, 8, 9 ), PoolIntArray( 10, 11, 12, 13, 14 ), PoolIntArray( 15, 10, 14 ), PoolIntArray( 16, 15, 14 ), PoolIntArray( 17, 18, 19, 20, 16, 14, 21, 22 ), PoolIntArray( 23, 24, 22, 21, 25, 26 ), PoolIntArray( 27, 23, 26, 28, 29, 9 ), PoolIntArray( 8, 27, 9 ) ]
+outlines = [ PoolVector2Array( 105.546, -1.9807, 107.307, 79.8832, 142.517, 199.598, 175.967, 335.158, 179.488, 404.698, 196.711, 460.595, 216.123, 502.007, 288.37, 530.175, 515.578, 538.914, 634.743, 535.736, 734.047, 546.064, 962.049, 545.27, 1027.99, 543.681, 1024.01, 426.105, 975.554, 406.244, 929.477, 367.317, 906.439, 344.278, 850.034, 257.685, 832.556, 237.824, 769.796, 206.047, 641.098, 194.925, 548.944, 205.253, 467.118, 244.974, 405.152, 277.546, 359.075, 275.957, 315.381, 260.863, 257.387, 193.336, 225.61, 117.865, 218.46, 61.4604, 216.077, -1.29979 ) ]
+
+[node name="Stomach" type="Node2D" index="0"]
 
 [node name="Stomach" type="Sprite" parent="." index="0"]
 
@@ -19,7 +27,18 @@ position = Vector2( 158.815, 20.1311 )
 
 position = Vector2( 523.395, 305.81 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+[node name="EnemyController" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="WhiteCell" parent="EnemyController" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 633.467, 293.383 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="EnemyController" index="2"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
 
 input_pickable = false
 collision_layer = 1
@@ -40,7 +59,7 @@ polygon = PoolVector2Array( 103.166, -38.7149, 102.169, 4.00381, 102.596, 32.198
 build_mode = 0
 polygon = PoolVector2Array( 98.6217, -6.32137, 222.658, -5.60439, 221.941, 3.35775, 221.941, 32.3951, 229.469, 99.432, 247.035, 161.092, 285.751, 217.374, 320.525, 255.015, 357.807, 268.279, 404.769, 268.637, 464.636, 236.374, 542.427, 199.45, 636.351, 187.62, 763.638, 195.291, 842.645, 232.758, 912.195, 339.251, 970.839, 391.379, 1038.44, 425.588, 1101.16, 432.919, 1100.35, -47.6398, 117.237, -54.1558 )
 
-[node name="acids" type="StaticBody2D" parent="." index="4" groups=[
+[node name="acids" type="StaticBody2D" parent="." index="5" groups=[
 "enemy",
 ]]
 
@@ -57,7 +76,7 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 271.671, 538.503, 411.073, 540.612, 506.467, 544.037, 578.935, 540.348, 668.005, 552.997, 720.985, 556.515, 747.471, 550.819, 820.155, 550.531, 913.394, 550.709, 962.315, 552.369, 979.439, 561.644, 973.969, 590.659, 263.809, 581.222 )
 
-[node name="finish" type="StaticBody2D" parent="." index="5"]
+[node name="finish" type="StaticBody2D" parent="." index="6"]
 
 input_pickable = false
 collision_layer = 1
