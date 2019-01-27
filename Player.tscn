@@ -31,7 +31,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -42,7 +42,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 
 [node name="rope" type="Line2D" parent="." index="0"]
 
-points = PoolVector2Array( 0.125359, 0.0137329, 45.2301, -30.5805 )
+points = PoolVector2Array( 0, 0, 45.2301, -30.5805 )
 width = 5.0
 default_color = Color( 0.941406, 0.397156, 0, 1 )
 texture_mode = 164895456

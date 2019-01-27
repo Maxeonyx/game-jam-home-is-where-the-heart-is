@@ -6,8 +6,9 @@ func _ready():
 	reset()
 
 func reset():
-	endpoint = position
+	hide()
+	endpoint = to_global(position)
 
 func _process(delta):
 	points[0] = position
-	points[1] = endpoint
+	points[1] = to_local(endpoint)

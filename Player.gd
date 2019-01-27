@@ -33,7 +33,8 @@ func reset(spawn_pos):
 	$indicator.reset()
 
 func _ready():
-	sm_rope()
+	#sm_rope()
+	#sm_tween_proxy()
 	reset(position)
 
 func _process(delta):
@@ -43,6 +44,10 @@ func _process(delta):
 func _physics_process(delta):
 	
 	if Input.is_action_just_released('jump'):
+		is_still_jumping = false
+	
+	if Input.is_action_just_released('attach'):
+		emit_signal('end_fire', false)
 		is_still_jumping = false
 	
 	match movement_mode:
@@ -117,7 +122,7 @@ func normal_movement():
 func handle_collision(collision):
 	var other = collision.collider
 	
-	if Input.is_action_pressed('grab') and is_on_wall():
+	if Input.is_action_pressed('grab') and (is_on_wall() or is_on_floor() or is_on_ceiling()):
 		$indicator.start_discharge()
 		movement_mode = 'grabbed'
 	
@@ -141,14 +146,19 @@ func sm_rope():
 				if nearest_attachment == null or (att.position - position).length() < (nearest_attachment.position - position).length():
 					nearest_attachment = att
 		
-		$Tween.interpolate_property($rope, 'endpoint', position, nearest_attachment.position, 0.3, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$Tween.interpolate_property($rope, 'endpoint', to_global(position), nearest_attachment.to_global(nearest_attachment.position), 0.3, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$Tween.start()
 		var attached = yield(self, 'end_fire')
+		print('endfire')
 		if attached:
+			print('attached')
 			attachment_point = nearest_attachment.position
 			movement_mode = 'attached'
 		else:
-			$Tween.stop()
+			$Tween.stop($rope)
 			$rope.reset()
+		
+		
 		
 func sm_tween_proxy():
 	while true:
