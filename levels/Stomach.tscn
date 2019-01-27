@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Stomach.png" type="Texture" id=1]
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
-[node name="Stomach" type="Node2D" index="0"]
+[node name="Stomach" type="Node2D"]
 
 [node name="Stomach" type="Sprite" parent="." index="0"]
 
@@ -58,12 +57,7 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 271.671, 538.503, 411.073, 540.612, 506.467, 544.037, 578.935, 540.348, 668.005, 552.997, 720.985, 556.515, 747.471, 550.819, 820.155, 550.531, 913.394, 550.709, 962.315, 552.369, 979.439, 561.644, 973.969, 590.659, 263.809, 581.222 )
 
-[node name="Player" parent="." index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 175.037, 47.8364 )
-rope_color = null
-
-[node name="finish" type="StaticBody2D" parent="." index="6"]
+[node name="finish" type="StaticBody2D" parent="." index="5"]
 
 input_pickable = false
 collision_layer = 1
