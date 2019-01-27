@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Asophogous.png" type="Texture" id=1]
+[ext_resource path="res://util/spawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
+
+[node name="Asophogus" type="Node2D" index="0"]
+
+[node name="Asophogous" type="Sprite" parent="." index="0"]
+
+position = Vector2( 517.94, 302.848 )
+scale = Vector2( 0.985477, 0.985477 )
+texture = ExtResource( 1 )
+
+[node name="spawn" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 232.241, 13.2549 )
+
+[node name="camera_location" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 512.574, 299.128 )
+
+[node name="finish" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="finish" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 638.382, 600.907, 404.623, 599.437, 434.762, 639.867, 641.323, 635.457 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="4"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 457.55, 646.483, 421.53, 568.563, 420.06, 508.286, 430.351, 457.564, 481.073, 412.724, 572.224, 392.876, 624.415, 364.943, 636.912, 326.718, 627.356, 289.963, 603.833, 262.765, 584.721, 251.004, 542.82, 249.533, 503.86, 259.825, 450.199, 287.023, 408.298, 310.546, 375.954, 311.281, 341.405, 303.195, 297.299, 273.056, 258.34, 214.249, 225.26, 140.74, 192.181, 85.6078, 131.904, -10.6892, 306.856, -12.8945, 328.909, 16.5092, 386.981, 92.9588, 424.47, 122.362, 489.159, 134.124, 572.959, 130.448, 637.647, 131.919, 702.335, 153.236, 746.441, 198.812, 772.169, 259.09, 773.639, 300.99, 772.169, 367.148, 753.792, 410.519, 722.183, 448.743, 667.786, 487.703, 631.031, 525.928, 618.535, 566.358, 620.005, 647.218, 896.4, 637.662, 908.896, -49.6491, 72.3614, -48.1789, 145.135, 649.423 )
+
+
