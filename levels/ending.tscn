@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Ending.png" type="Texture" id=1]
+[ext_resource path="res://assets/heart.png" type="Texture" id=2]
+[ext_resource path="res://util/spawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ending" type="Sprite" parent="." index="0"]
+
+position = Vector2( 513.204, 303.782 )
+scale = Vector2( 0.967324, 0.91107 )
+texture = ExtResource( 1 )
+
+[node name="heartpic" type="Sprite" parent="." index="1"]
+
+position = Vector2( 918.517, 155.235 )
+scale = Vector2( 0.30545, 0.287686 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="2"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 231.847, -37.8388, 225.876, 25.1861, 224.549, 114.084, 231.847, 181.753, 246.442, 275.295, 280.94, 354.905, 314.774, 394.047, 370.502, 423.238, 496.551, 438.496, 653.118, 442.477, 734.719, 433.189, 785.139, 402.672, 813.666, 361.54, 834.895, 299.178, 844.846, 249.422, 847.5, 195.021, 849.49, 138.631, 856.788, 90.8646, 889.959, 50.396, 924.457, 32.4837, 963.599, 36.4642, 980.184, 73.6157, 988.145, 129.343, 992.125, 246.768, 983.501, 302.495, 976.867, 482.282, 939.715, 547.96, 862.095, 571.844, 729.428, 578.869, 611.477, 581.862, 430.659, 578.869, 318.096, 567.493, 245.649, 556.117, 188.769, 546.537, 125.303, 510.014, 88.7803, 459.72, 71.417, 352.546, 58.8435, 263.335, 64.8269, -22.1176, -48.8879, -27.5326, -45.2779, 668.294, 1109.92, 652.049, 1092.77, -38.3626 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 33.3096, -41.8228, 41.415, -1.29584, 262.422, 0.325241, 259.18, -46.1456 )
+
+[node name="spawn" parent="StaticBody2D2/CollisionPolygon2D2" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 143.003, 24.6414 )
+
+[node name="camera_location" parent="StaticBody2D2/CollisionPolygon2D2" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 511.573, 300.114 )
+
+[node name="heart" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="heart" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 935.014, 216.118, 941.339, 209.53, 948.19, 187.658, 951.879, 164.995, 951.352, 149.184, 956.623, 120.46, 946.082, 101.75, 920.784, 94.3717, 894.696, 96.7434, 884.418, 118.879, 883.364, 144.967, 883.364, 161.306, 884.418, 177.907, 894.432, 195.3, 912.615, 210.584 )
+
+
