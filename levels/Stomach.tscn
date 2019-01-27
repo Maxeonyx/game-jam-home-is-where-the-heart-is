@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Stomach.png" type="Texture" id=1]
+[ext_resource path="res://util/spawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+
+[node name="Stomach" type="Node2D" index="0"]
+
+[node name="Stomach" type="Sprite" parent="." index="0"]
+
+position = Vector2( 509.453, 318.186 )
+texture = ExtResource( 1 )
+
+[node name="spawn" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 158.815, 20.1311 )
+
+[node name="camera_location" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 523.395, 305.81 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 0.0887451, 0.549042 )
+build_mode = 0
+polygon = PoolVector2Array( 103.166, -38.7149, 102.169, 4.00381, 102.596, 32.1982, 103.457, 75.8646, 110.343, 102.728, 137.498, 194.121, 153.558, 272.082, 167.228, 317.067, 174.775, 365.924, 173.981, 402.468, 173.981, 402.468, 178.626, 421.44, 200.472, 482.611, 213.58, 506.047, 248.138, 518.758, 283.49, 532.66, 302.556, 552.521, 316.459, 567.615, 615.287, 574.425, 627.542, 547.848, 658.584, 544.004, 695.18, 546.282, 716.921, 550.912, 755.726, 578.678, 958.125, 573.326, 963.067, 552.013, 979.126, 552.296, 990.651, 548.423, 1045.65, 549.188, 1044.87, 668.276, -37.0505, 664.683, -29.5233, -51.0328 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 98.6217, -6.32137, 222.658, -5.60439, 221.941, 3.35775, 221.941, 32.3951, 229.469, 99.432, 247.035, 161.092, 285.751, 217.374, 320.525, 255.015, 357.807, 268.279, 404.769, 268.637, 464.636, 236.374, 542.427, 199.45, 636.351, 187.62, 763.638, 195.291, 842.645, 232.758, 912.195, 339.251, 970.839, 391.379, 1038.44, 425.588, 1101.16, 432.919, 1100.35, -47.6398, 117.237, -54.1558 )
+
+[node name="acids" type="StaticBody2D" parent="." index="4" groups=[
+"enemy",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="acids" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 271.671, 538.503, 411.073, 540.612, 506.467, 544.037, 578.935, 540.348, 668.005, 552.997, 720.985, 556.515, 747.471, 550.819, 820.155, 550.531, 913.394, 550.709, 962.315, 552.369, 979.439, 561.644, 973.969, 590.659, 263.809, 581.222 )
+
+[node name="Player" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 175.037, 47.8364 )
+rope_color = null
+
+[node name="finish" type="StaticBody2D" parent="." index="6"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="finish" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1036.17, 414.395, 1036.17, 562.142, 1077.05, 557.762, 1068, 397.752 )
+
+
