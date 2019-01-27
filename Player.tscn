@@ -83,7 +83,6 @@ width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )
 sharp_limit = 2.0
 round_precision = 8
-script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 full_charge_color = Color( 0.244263, 0.679688, 0, 0.823176 )
 charge_color = Color( 0, 0.953125, 0.215942, 0.259647 )
