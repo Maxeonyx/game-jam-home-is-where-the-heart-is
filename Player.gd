@@ -115,16 +115,16 @@ func normal_movement():
 		print('fire')
 		emit_signal('fire')
 	
+	if Input.is_action_pressed('grab') and (is_on_wall() or is_on_floor() or is_on_ceiling()):
+		$indicator.start_discharge()
+		movement_mode = 'grabbed'
+	
 	if is_on_floor() and Input.is_action_just_pressed('jump'):
 		is_still_jumping = true
 		velocity.y -= jump_velocity
 	
 func handle_collision(collision):
 	var other = collision.collider
-	
-	if Input.is_action_pressed('grab') and (is_on_wall() or is_on_floor() or is_on_ceiling()):
-		$indicator.start_discharge()
-		movement_mode = 'grabbed'
 	
 	if other.name == 'finish':
 		emit_signal('level_complete')
