@@ -5,7 +5,7 @@
 [ext_resource path="res://util/spawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="Ending" type="Sprite" parent="." index="0"]
 
@@ -39,14 +39,6 @@ polygon = PoolVector2Array( 231.847, -37.8388, 225.876, 25.1861, 224.549, 114.08
 build_mode = 0
 polygon = PoolVector2Array( 33.3096, -41.8228, 41.415, -1.29584, 262.422, 0.325241, 259.18, -46.1456 )
 
-[node name="spawn" parent="StaticBody2D2/CollisionPolygon2D2" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( 143.003, 24.6414 )
-
-[node name="camera_location" parent="StaticBody2D2/CollisionPolygon2D2" index="1" instance=ExtResource( 4 )]
-
-position = Vector2( 511.573, 300.114 )
-
 [node name="heart" type="StaticBody2D" parent="." index="3"]
 
 input_pickable = false
@@ -61,5 +53,13 @@ bounce = 0.0
 
 build_mode = 0
 polygon = PoolVector2Array( 935.014, 216.118, 941.339, 209.53, 948.19, 187.658, 951.879, 164.995, 951.352, 149.184, 956.623, 120.46, 946.082, 101.75, 920.784, 94.3717, 894.696, 96.7434, 884.418, 118.879, 883.364, 144.967, 883.364, 161.306, 884.418, 177.907, 894.432, 195.3, 912.615, 210.584 )
+
+[node name="spawn" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 143.003, 24.6414 )
+
+[node name="camera_location" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 511.573, 300.114 )
 
 
