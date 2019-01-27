@@ -129,6 +129,9 @@ func handle_collision(collision):
 	if other.name == 'finish':
 		emit_signal('level_complete')
 	
+	if other.name == 'heart':
+		emit_signal('game_complete')
+	
 	if other.is_in_group('enemy'):
 		_collide_with_enemy(other)
 

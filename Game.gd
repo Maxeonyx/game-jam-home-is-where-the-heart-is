@@ -13,6 +13,7 @@ func _ready():
 	sm_levels()
 	sm_death_screen()
 	sm_music()
+	sm_game_complete()
 
 func sm_death_screen():
 	while true:
@@ -57,6 +58,10 @@ func sm_music():
 		for audio in $music.get_children():
 			audio.play()
 			yield(audio, 'finished')
+
+func sm_game_complete():
+	yield(player, 'game_complete')
+	get_tree().change_scene('res://HomeScreen.tscn')
 
 
 
