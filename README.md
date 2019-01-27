@@ -6,6 +6,6 @@ It was created in 48 hours in the Global Game Jam. [Here](https://maxeonyx.itch.
 
 ## Credits
 
-Peter Galloway - @1sttperson - Game design, level design, art
+Peter Galloway - [@1sttperson](https://github.com/1sttperson/) - Game design, level design, art
 
-Max Clarke - Programming
+Max Clarke - [@maxeonyx](https://github.com/Maxeonyx) - Programming
