@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/player.png" type="Texture" id=2]
-[ext_resource path="res://indicator.gd" type="Script" id=3]
+[ext_resource path="res://assets/Virus.png" type="Texture" id=2]
+[ext_resource path="res://assets/player.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -45,12 +45,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="spritescaler" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+position = Vector2( 0.808122, 5.53527 )
 scale = Vector2( 0.0747462, 0.0770229 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="sprite" type="Sprite" parent="spritescaler" index="0"]
 
-rotation = 6.28319
+rotation = 2.88697
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -78,8 +80,7 @@ playback/speed = 1.0
 modulate = Color( 0.371094, 0.475911, 1, 1 )
 points = PoolVector2Array( 71.3488, -26.932, 63.9951, -44.9033, 52.4472, -59.0206, 36.2615, -70.5477, 16.5448, -78.7929, -8.90773, -79.1514, -32.8234, -72.9874, -54.4354, -57.2838, -68.8429, -34.7626, -75.2276, -12.8315, -75.2276, 13.6964, -68.9231, 34.3195, -56.5863, 53.8468, -40.813, 67.4693, -20.3793, 76.7899, 0.771393, 79.6578, 20.8466, 76.7899, 41.2803, 66.7523, 56.6952, 53.1299, 66.0158, 39.8659, 73.1855, 23.734, 75.6949, 6.16822, 75.3647, -11.1513, 71.7283, -26.0234, 71.3541, -26.9381 )
 width = 10.0
-default_color = Color( 1, 1, 1, 1 )
-texture_mode = 1
+default_color = Color( 0.4, 0.5, 1, 1 )
 sharp_limit = 2.0
 round_precision = 8
 script = ExtResource( 3 )
@@ -93,7 +94,7 @@ discharge_color = Color( 0, 0.370789, 0.949219, 1 )
 modulate = Color( 0.855469, 0.0133667, 0.0133667, 1 )
 position = Vector2( 75, 0 )
 scale = Vector2( 0.0684695, 0.0684695 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 

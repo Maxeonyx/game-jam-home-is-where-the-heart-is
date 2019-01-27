@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="camera_location" type="Position2D"]
+[node name="camera_location" type="Position2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -10,7 +10,7 @@ position = Vector2( 0, -5.41501 )
 
 [node name="Line2D" type="Line2D" parent="Node2D" index="0"]
 
-points = PoolVector2Array( 511.505, -294.12, 513.31, 306.945, -510.125, 306.945, -510.125, -294.12, 493.455, -294.12 )
+points = PoolVector2Array( 511.505, -294.12, 513.31, 306.945, -510.125, 306.945, -510.125, -294.12, 511.403, -294.057 )
 width = 10.0
 default_color = Color( 0.4, 0.5, 1, 1 )
 texture_mode = 1062129359

@@ -32,7 +32,7 @@ func _ready():
 	$AnimationPlayer.play("syn")
 
 func _process(delta):
-	if position.y > 1000:
+	if position.y > 350:
 		emit_signal('death')
 
 func _physics_process(delta):

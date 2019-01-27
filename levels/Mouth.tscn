@@ -5,16 +5,12 @@
 [ext_resource path="res://util/camera_location.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WhiteCell.tscn" type="PackedScene" id=4]
 
-
-
-
-[node name="mouth" type="Node2D"]
+[node name="mouth" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
 [node name="lower_jaw" type="StaticBody2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 0, -4.41058 )
 input_pickable = false
 collision_layer = 1
@@ -29,9 +25,8 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -506.3, 133.411, -308.528, 131.25, -307.447, 179.882, -118.321, 200.416, 131.325, 174.479, 563.614, 269.582, 458.784, 524.632, -553.851, 486.807 )
 
-[node name="lower_jaw2" type="StaticBody2D" parent="." index="1"]
+[node name="upper_jaw" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 0, -4.41058 )
 input_pickable = false
 collision_layer = 1
@@ -41,7 +36,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="lower_jaw2" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="upper_jaw" index="0"]
 
 position = Vector2( -86.2181, -341.28 )
 build_mode = 0
@@ -50,6 +45,7 @@ polygon = PoolVector2Array( -422.195, 253.271, -227.007, 253.271, -224.612, 216.
 [node name="gums" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
+visible = false
 modulate = Color( 0.847656, 0, 0.317871, 1 )
 position = Vector2( 0, -4.41058 )
 
@@ -161,7 +157,6 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="finish" type="StaticBody2D" parent="." index="4"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
