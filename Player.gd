@@ -7,6 +7,7 @@ signal death
 signal level_complete
 signal fire
 signal end_fire
+signal game_complete
 
 const ping_velocity = 1000
 const min_ping_velocity = 300
